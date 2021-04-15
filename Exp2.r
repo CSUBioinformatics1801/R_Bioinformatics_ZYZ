@@ -1,3 +1,7 @@
+# ------------encode utf-8-------------------
+#datetime: 20210330
+#author: Sean Peldom Zhang
+#R.version()=4.0.3
 # ---------------Experiments-----------------
 # 1.install packages
 if(!requireNamespace("BiocManager",quietly = TRUE))
