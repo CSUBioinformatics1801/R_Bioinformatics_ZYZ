@@ -1,3 +1,7 @@
+# ------------encode utf-8-------------------
+#datetime: 20210330
+#author: Sean Peldom Zhang
+#R.version()=4.0.4 
 # ---------------HOMEWORK(1)-----------------
 # initiate .dat from Exp1.r
 b <- factor(c(1, 1, 2, 2, 3, 3, 3, 1, 2));
