@@ -72,11 +72,13 @@ ADrownams=names(ADproteomic)
 # filter data
 ad_subset=subset(ADproteomic, select=na.omit(str_extract(ADrownams,".*LFQ.*ad.*")))
 ctl_subset=subset(ADproteomic, select=na.omit(str_extract(ADrownams,".*LFQ.*ctl.*")))
-judge_3NA=function(x){return (colSums(as.matrix(x) ==0)>=3)}# x is a row
+judge_3NA=function(x){return (colSums(as.matrix(x) !=0)>3)}# x is a row
 del_judge=apply(ad_subset, 1, judge_3NA)&apply(ctl_subset, 1, judge_3NA)
 ADrownams_del=ADproteomic$Protein.IDs[del_judge]
 ad_rm_3NA=ad_subset[del_judge,]
+ad_rm_3NA[ad_rm_3NA==0]=NA
 ctl_rm_3NA=ctl_subset[del_judge,]
+ctl_rm_3NA[ctl_rm_3NA==0]=NA
 # t test for each protein
 p_list=c()
 for(i in 1:nrow(ad_rm_3NA)){
