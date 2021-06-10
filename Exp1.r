@@ -66,7 +66,7 @@ print(Male_num)
 Female_num <- 0
 for (i in c(1:nrow(dat))) {
     rotator <- FALSE
-    if (dat[i, ]["Sex"] == "Female" && dat[i, ]["GLU"] < 6.1
+    while (dat[i, ]["Sex"] == "Female" && dat[i, ]["GLU"] < 6.1
     && dat[i, ]["GLU"] > 3.9 && rotator == FALSE) {
         Female_num <- Female_num + 1
         rotator <- TRUE
