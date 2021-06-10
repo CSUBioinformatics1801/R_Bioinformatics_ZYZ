@@ -92,7 +92,9 @@ ID2=ID
 for (i in 1:length(nchar(ID))) {
   ID2[i] <- replaceNA(ID,i)
 }
-
+# refine:
+pat_str='.+?;(sp|tr)\\|([A-Z0-9]+).*'
+ID2=sub(pat_str,'\\2',ID)
 # homework (2)
 extract_u3=function(IDip,i){
   uniprot3=str_extract_all(IDip[i],"(?<=\\|)([A-Z0-9]+)(?=\\|)")[[1]][3]
@@ -106,6 +108,8 @@ ID3=ID
 for (i in 1:length(nchar(ID))) {
   ID3[i] <- extract_u3(ID,i)
 }
+# refine:
+ID3=sapply(strsplit(ID,";"), function(x)sub(pat_str,'\\2',x[3]))
 
 # homework (3)
 bind_all=function(x1,x2){
