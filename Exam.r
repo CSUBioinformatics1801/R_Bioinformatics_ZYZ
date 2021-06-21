@@ -95,7 +95,7 @@ ego=enrichGO(gene = dif_gene,
              pAdjustMethod = "none",
              minGSSize = 10,
              maxGSSize = 20, 
-             readable = TRUE)
+             readable = FALSE)#此处有bug，true会报错，需要反馈给clusterProfiler开发者
 if(!requireNamespace("GOplot",quietly = TRUE))
   install.packages("GOplot")
 library(GOplot)
